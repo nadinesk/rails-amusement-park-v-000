@@ -1,0 +1,34 @@
+<h3>User</h3>
+
+<% if message %>
+  <%= message %>
+<% end %>
+<% if @user == current_user || current_user.admin? %>
+  <p> Admin </p>
+  <p>Name: <%= @user.name if @user.name %></p>
+
+  <p><%= link_to 'See attractions', '/attractions' %></p>
+
+
+
+  Or <%= link_to(controller: 'sessions', action: 'destroy') { 'logout' } %>
+
+
+<% end %>
+
+###########################################################
+  <h2>Rides</h2>
+  <% @user.attractions.each do |attraction| %>
+    <div>
+        <a href="/attractions/<%= "#{attraction.id}" %>/edit"><%= "#{attraction.name}"</a>
+      <% end %>
+    </div>
+  <% end %>
+<% end %>
+
+<% if @user == current_user %>
+  <%= form_for :post, url: posts_path do |f| %>
+    Content: <%= f.text_field :content %><br />
+    <%= f.submit %>
+  <% end %>
+<% end %>

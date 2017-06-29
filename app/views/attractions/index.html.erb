@@ -1,0 +1,9 @@
+<% if @user == current_user %>
+  <% @attractions.each do |att| %>
+    Go on <link_to <%=att.name %>, attraction_path %>
+      
+    <% end %>
+<% elsif @current_user.admin? %>
+
+<% end %>
+ 'Attractions', '/attractions' %></li>
