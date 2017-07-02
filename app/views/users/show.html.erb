@@ -1,0 +1,13 @@
+
+<h2><%= @user.name %> </h2> 
+
+<% if @user.admin %>
+	<p> ADMIN </p>
+
+<% end %>
+
+<%= @message %>
+<li> Mood: <%= @user.mood %> <li>
+<li> Tickets: <%= @user.tickets %> </li>
+<li> Height: <%= @user.height %> </li>
+

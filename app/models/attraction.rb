@@ -1,3 +1,8 @@
 class Attraction < ActiveRecord::Base
-  # write associations here
+
+	has_many :rides
+  	has_many :users, through: :rides
+
+  	#validates :nausea_rating, :min_height, :tickets, presence: true
+
 end
